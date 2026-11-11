@@ -1,0 +1,53 @@
+name: Build and Deploy Frontend to OpenShift
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: npm
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Lint and test (skipped if scripts don't exist)
+      run: |
+        npm run lint --if-present
+        npm test --if-present
+
+    - name: Build the application (CI check)
+      run: npm run build
+
+    - name: OpenShift Client Installer
+      uses: redhat-actions/oc-installer@v1.2
+
+    - name: Log in to OpenShift
+      env:
+        OPENSHIFT_API_URL: ${{ secrets.OPENSHIFT_API_URL }}
+        OPENSHIFT_TOKEN: ${{ secrets.OPENSHIFT_TOKEN }}
+      run: |
+        oc login $OPENSHIFT_API_URL --token=$OPENSHIFT_TOKEN --insecure-skip-tls-verify=true
+
+    - name: Set project to agile-health-tracker-app
+      run: |
+        oc project agile-health-tracker-app
+
+    - name: Build and deploy the app to OpenShift
+      run: |
+        oc start-build health-tracker-frontend-app --follow
+
+    - name: Check deployment status
+      run: |
+        oc rollout status deployment/health-tracker-frontend-app
