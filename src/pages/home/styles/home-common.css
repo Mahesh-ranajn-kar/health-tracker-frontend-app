@@ -1,0 +1,31 @@
+/* Shared tokens + helpers. Imported once in WelcomePage.vue (NOT scoped). */
+.welcome-page {
+  --pt-primary: #4f46e5;
+  --pt-violet: #8b5cf6;
+  --pt-page: #f8fafc;
+  --pt-surface: #ffffff;
+  --pt-border: #e2e8f0;
+  --pt-text: #0f172a;
+  --pt-muted: #64748b;
+  color: var(--pt-text);
+  background: var(--pt-surface);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+.welcome-page *,
+.welcome-page *::before,
+.welcome-page *::after { box-sizing: border-box; }
+.welcome-page a { text-decoration: none; }
+
+/* every primary Ant button on the page */
+.welcome-page .ant-btn-primary {
+  background: var(--pt-primary);
+  border-color: var(--pt-primary);
+}
+
+/* shared section wrapper: <section class="pt-section pt-container"> */
+.pt-section { padding: 90px 9%; }
+.pt-container { max-width: 1400px; margin: auto; }
+
+@media (max-width: 560px) {
+  .pt-section { padding: 58px 6%; }
+}
