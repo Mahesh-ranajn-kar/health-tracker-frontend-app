@@ -5,6 +5,8 @@
     <main>
       <HeroSection :on-register="goToRegister" :on-login="goToLogin" />
       <FeaturesSection :features="features" />
+      <AboutSection :on-register="goToRegister" />
+      <CtaSection :on-register="goToRegister" />
     </main>
   </div>
 </template>
@@ -14,6 +16,8 @@ import { useRouter } from 'vue-router'
 import HeaderSection from './sections/HeaderSection.vue'
 import HeroSection from './sections/HeroSection.vue'
 import FeaturesSection from './sections/FeaturesSection.vue'
+import AboutSection from './sections/AboutSection.vue'
+import CtaSection from './sections/CtaSection.vue'
 
 import { features } from './data/features'
 import './styles/home-common.css'
