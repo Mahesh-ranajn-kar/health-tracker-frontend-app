@@ -7,7 +7,11 @@
       <FeaturesSection :features="features" />
       <AboutSection :on-register="goToRegister" />
       <CtaSection :on-register="goToRegister" />
+      <ContactSection />
     </main>
+
+    <HomeFooter :scroll-to="scrollToSection" />
+    
   </div>
 </template>
 
@@ -18,6 +22,8 @@ import HeroSection from './sections/HeroSection.vue'
 import FeaturesSection from './sections/FeaturesSection.vue'
 import AboutSection from './sections/AboutSection.vue'
 import CtaSection from './sections/CtaSection.vue'
+import ContactSection from './sections/ContactSection.vue'
+import HomeFooter from './sections/HomeFooter.vue'
 
 import { features } from './data/features'
 import './styles/home-common.css'
