@@ -9,14 +9,13 @@ const router = createRouter({
       component: () => import("../pages/home/HomePage.vue")
     },
     {
-      path: "/user",
-      name: "user",
-      component: () => import("../pages/User.vue")
+      path:'/login',
+      name:'login',
+      component:() => import('../auth/LoginPage.vue')
     },
     {
-      path: "/activity",
-      name: "activity",
-      component: () => import("../pages/Activity.vue")
+      path:'/:pathMatch(.*)*',
+      redirect:'/'
     }
   ],
 })
