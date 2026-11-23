@@ -4,6 +4,7 @@
 
     <main>
       <HeroSection :on-register="goToRegister" :on-login="goToLogin" />
+      <FeaturesSection :features="features" />
     </main>
   </div>
 </template>
@@ -12,6 +13,7 @@
 import { useRouter } from 'vue-router'
 import HeaderSection from './sections/HeaderSection.vue'
 import HeroSection from './sections/HeroSection.vue'
+import FeaturesSection from './sections/FeaturesSection.vue'
 
 import { features } from './data/features'
 import './styles/home-common.css'
