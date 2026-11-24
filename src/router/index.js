@@ -14,6 +14,11 @@ const router = createRouter({
       component:() => import('../auth/LoginPage.vue')
     },
     {
+      path:'/dashboard',
+      name:'dashboard',
+      component:() => ("<h1>Hello</h1>")
+    },
+    {
       path:'/:pathMatch(.*)*',
       redirect:'/'
     }
