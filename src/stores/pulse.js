@@ -21,6 +21,8 @@ export const usePulseStore = defineStore('pulse', () => {
         } catch { return fallback }
     }
 
+    const currentUser = ref(read("user", read("user", {})));
+
     const darkMode = ref(read('pulsetrack_dark', false)), globalSearch = ref('')
 
     const brandColor = ref(normalizeHex(readString('pulsetrack_brand_color', DEFAULT_BRAND_COLOR)))
@@ -40,6 +42,7 @@ export const usePulseStore = defineStore('pulse', () => {
 
 
     return {
+        currentUser,
         darkMode,
         brandColor,
         activeBrandColor,

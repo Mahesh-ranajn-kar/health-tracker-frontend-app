@@ -1,0 +1,92 @@
+/* AppSider.css */
+
+.brand-lockup {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--pt-border);
+  color: var(--pt-primary);
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: white;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+}
+
+.app-sider {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* was :deep(...) */
+.app-sider .ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-sider .ant-menu {
+  flex: 1;
+  padding: 18px 10px;
+}
+
+.app-sider .ant-menu-item {
+  margin-block: 4px !important;
+  width: 100% !important;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 9px;
+}
+
+.menu-icon {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.sider-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 12px;
+  border-top: 1px solid var(--pt-border);
+}
+
+.sider-user-copy {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sider-user-copy strong,
+.sider-user-copy span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sider-user-copy strong {
+  font-size: 13px;
+}
+
+.sider-user-copy span {
+  color: var(--pt-muted);
+  font-size: 11px;
+}
+
+@media (max-width: 991px) {
+  .app-sider {
+    min-width: 210px !important;
+    max-width: 210px !important;
+  }
+}
