@@ -16,7 +16,22 @@ const router = createRouter({
     {
       path:'/dashboard',
       name:'dashboard',
-      component:() => ("<h1>Hello</h1>")
+      component:() => import("../pages/Dashboard.vue")
+    },
+    {
+      path:'/users',
+      name:'users',
+      component:() => import("../pages/User.vue")
+    },
+    {
+      path:'/manage-activities',
+      name:'manage-activities',
+      component:() => import("../pages/ManageActivities.vue")
+    },
+    {
+      path:'/profile',
+      name:'profile',
+      component:() => import("../pages/Profile.vue")
     },
     {
       path:'/:pathMatch(.*)*',
