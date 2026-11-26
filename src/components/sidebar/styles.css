@@ -1,4 +1,3 @@
-/* AppSider.css */
 
 .brand-lockup {
   height: 72px;
@@ -29,7 +28,6 @@
   min-height: 100vh;
 }
 
-/* was :deep(...) */
 .app-sider .ant-layout-sider-children {
   display: flex;
   flex-direction: column;
@@ -41,11 +39,8 @@
 }
 
 .app-sider .ant-menu-item {
-  margin-block: 4px !important;
-  width: 100% !important;
   height: 44px;
   line-height: 44px;
-  border-radius: 9px;
 }
 
 .menu-icon {
@@ -85,8 +80,13 @@
 }
 
 @media (max-width: 991px) {
-  .app-sider {
-    min-width: 210px !important;
-    max-width: 210px !important;
+  .brand-lockup {
+    padding: 0 15px;
+  }
+
+  .brand-mark-text,
+  .sider-user .sider-user-avatar,
+  .sider-user .sider-user-copy {
+    display: none;
   }
 }
