@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed, watch } from 'vue'
+import { message } from 'ant-design-vue'
 import { DEFAULT_BRAND_COLOR, normalizeHex, applyBrandTheme, generateBrandPalette } from '../utils/themeUtils.js'
 
 export const usePulseStore = defineStore('pulse', () => {
@@ -32,6 +33,20 @@ export const usePulseStore = defineStore('pulse', () => {
         return darkMode.value ? hexMap[400] : hexMap[600]
     })
 
+    function toggleTheme() {
+        darkMode.value = !darkMode.value;
+        message.success(darkMode.value ? "Switched to Dark Mode" : "Switched to Light Mode");
+    }
+
+    watch(
+        darkMode,
+        (v) => {
+            document.documentElement.classList.toggle("dark", v);
+            localStorage.setItem("pulsetrack_dark", JSON.stringify(v));
+        },
+        { immediate: true },
+    );
+
     watch([darkMode, brandColor], ([isDark, color]) => {
         document.documentElement.classList.toggle('dark', isDark)
         localStorage.setItem('pulsetrack_dark', JSON.stringify(isDark))
@@ -46,5 +61,6 @@ export const usePulseStore = defineStore('pulse', () => {
         darkMode,
         brandColor,
         activeBrandColor,
+        toggleTheme
     }
 })

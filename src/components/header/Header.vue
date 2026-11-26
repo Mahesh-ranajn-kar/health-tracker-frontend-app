@@ -48,6 +48,7 @@ import { usePulseStore } from "../../stores/pulse.js";
 const route = useRoute();
 const { darkMode, globalSearch } = storeToRefs(usePulseStore());
 const { toggleTheme } = usePulseStore();
+
 const titles = {
   dashboard: "Dashboard",
   users: "User Management",
@@ -90,73 +91,5 @@ function formatDate(value) {
 // onBeforeUnmount(() => window.clearInterval(notificationTimer));
 </script>
 
-<style scoped>
-.topbar {
-  height: 72px;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  line-height: normal;
-  background: var(--pt-surface);
-  border-bottom: 1px solid var(--pt-border);
-}
+<style scoped src="./styles.css"></style>
 
-.topbar-title {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.topbar-title strong {
-  font-size: 16px;
-  color: var(--pt-text);
-}
-
-.topbar-title span {
-  font-size: 11px;
-  color: var(--pt-muted);
-}
-
-.topbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.global-search {
-  width: min(300px, 35vw);
-}
-
-.notification-popover {
-  width: 290px;
-}
-
-.notification-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.notification-popover small {
-  display: block;
-  color: var(--pt-muted);
-  margin-top: 4px;
-}
-
-@media (max-width: 640px) {
-  .topbar {
-    padding: 0 14px;
-  }
-
-  .topbar-title span {
-    display: none;
-  }
-
-  .global-search {
-    width: 150px;
-  }
-}
-</style>
