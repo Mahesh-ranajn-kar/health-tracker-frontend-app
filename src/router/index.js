@@ -21,7 +21,7 @@ const router = createRouter({
     {
       path:'/users',
       name:'users',
-      component:() => import("../pages/User.vue")
+      component:() => import("../pages/user-management/Users.vue")
     },
     {
       path:'/manage-activities',
