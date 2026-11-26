@@ -1,8 +1,8 @@
 <template>
-  <a-layout-sider :width="248" :breakpoint="'lg'" :collapsed-width="0" class="app-sider">
+  <a-layout-sider :width="248" :breakpoint="'lg'" :collapsed-width="70" class="app-sider">
     <div class="brand-lockup">
       <div class="brand-mark"><i class="fa-solid fa-bolt" /></div>
-      <span>PulseTrack</span>
+      <span class="brand-mark-text">PulseTrack</span>
     </div>
 
     <a-menu mode="inline" :selected-keys="[activeKey]" @click="({ key }) => switchTab(key)">
@@ -18,16 +18,13 @@
     </a-menu>
 
     <div class="sider-user">
-      <a-avatar :src="currentUser?.avatar" :size="40">{{
-        currentUser?.name?.charAt(0)
-        }}</a-avatar>
+      <a-avatar class="sider-user-avatar" :src="currentUser?.avatar" :size="40">{{ currentUser?.name?.charAt(0) }}</a-avatar>
       <div class="sider-user-copy">
         <strong>{{ currentUser?.name }}</strong>
         <span>{{ currentUser?.email }}</span>
       </div>
       <a-tooltip title="Logout">
-        <a-button type="text" danger aria-label="Logout" @click="handleLogout">
-          <i class="fa-solid fa-right-from-bracket" /></a-button>
+        <a-button type="text" danger aria-label="Logout" @click="handleLogout"><i class="fa-solid fa-right-from-bracket" /></a-button>
       </a-tooltip>
     </div>
   </a-layout-sider>
